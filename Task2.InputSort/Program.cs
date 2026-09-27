@@ -16,12 +16,27 @@ namespace Task2.InputSort
                 }
             }
             int[] numbers = new int[n];
-            for (int i = 0; i < n; i++)
-            {
-                Console.Write($"Элемент [{i}]: ");
-                numbers[i] = int.Parse(Console.ReadLine());
-                
-            }
+for (int i = 0; i < n; i++)
+{
+    while (true)
+    {
+        Console.Write($"Элемент [{i}]: ");
+        string? input = Console.ReadLine();
+        try
+        {
+            numbers[i] = int.Parse(input ?? "");
+            break;
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Ошибка: введите целое число!");
+        }
+        catch (OverflowException)
+        {
+            Console.WriteLine("Ошибка: число слишком большое!");
+        }
+    }
+}
 
             Console.WriteLine();
             Console.WriteLine($"Исходный маaссив: {string.Join(", ", numbers)}");
