@@ -3,11 +3,11 @@ using System.Globalization;
 
 namespace Task1.Statistics
 {
-    class Program 
+    class Program
     {
         static void Main(string[] args)
         {
-            Random random = new Random(100);
+            Random random = new Random();
             int[] numbers = new int[10];
 
             for (int i = 0; i < numbers.Length; i++)
@@ -20,7 +20,7 @@ namespace Task1.Statistics
             double product = 1;
             int count = 0;
 
-            foreach(int num in numbers)
+            foreach (int num in numbers)
             {
                 sum += num;
                 product *= num;
@@ -29,11 +29,11 @@ namespace Task1.Statistics
                     count++;
                 }
             }
-            
+
             double average = (double)sum / numbers.Length;
 
             int greaterCount = 0;
-            foreach(int num in numbers)
+            foreach (int num in numbers)
             {
                 if (num > average)
                 {
